@@ -7,10 +7,13 @@ const hbs = expHandleBars.create({
     defaultLayout: 'main',
     extname: 'hbs'
 });
+const routes = require('./todos');
+
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
+app.use(routes);
 
 async function start() {
     try {
